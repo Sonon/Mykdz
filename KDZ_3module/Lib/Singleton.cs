@@ -7,7 +7,7 @@ using System.Reflection;
 
 namespace Lib
 {
-    internal abstract class Singleton<T> where T : class
+    public abstract class Singleton<T> where T : class
     {
         /// Защищённый конструктор необходим для того, чтобы предотвратить создание экземпляра класса Singleton. 
         /// Он будет вызван из закрытого конструктора наследственного класса.

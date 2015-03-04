@@ -20,6 +20,7 @@ namespace Lib
         List<Notary> list;
         public void GetNewDataBaseFromString(string s)
         {
+            list = new List<Notary>();
             int start = 0;
             while (s[start] < '0' || s[start] > '9')
             {
@@ -47,19 +48,30 @@ namespace Lib
         private bool ReadNumber(string s, ref int i, out string res)
         {
             res = "";
+            if (s[i] < '0' || s[i] > '9')
+                throw GetDataErrorException();
             while (s[i] >= '0' && s[i] <= '9')
             {
                 res += s[i];
                 i++;
                 if (i >= s.Length)
+                {
+                    i++;
                     return false;
+                }
+            }
+            if (res == "32")
+            {
+
             }
             if (res != "")
             {
+                i++;
                 return true;
             }
             else
             {
+                i++;
                 return false;
             }
         }
@@ -76,7 +88,7 @@ namespace Lib
                 res = "";
                 while (true)
                 {
-                    if (!f && i < s.Length)
+                    if (!f && i >= s.Length)
                         break;
                     if (f && s[i] == '\"')
                     {
@@ -87,8 +99,9 @@ namespace Lib
                             i++;
                             break;
                         }
+                        i++;
                     }
-                    if (!f && s[i] == ',')
+                    if (!f && s[i] == ',' || s[i] == '\n')
                         break;
                     res += s[i];
                     i++;
@@ -99,11 +112,12 @@ namespace Lib
                 }
                 if (res == "")
                     throw GetDataErrorException();
-
+                i++;
                 return true;
             }
             catch(Exception)
             {
+                i++;
                 res = "";
                 return false;
             }

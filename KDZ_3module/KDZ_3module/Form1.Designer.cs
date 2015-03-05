@@ -35,16 +35,17 @@
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сортировкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поИмениToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поБлижайшейСтанцииМетроToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.фильтроватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поИмениToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.поБлижайшейСтанцииМетроToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.архивToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.инструментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.перевернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сортировкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.фильтрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поИмениToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.поБлижайшейСтанцииМетроToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -54,8 +55,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.сортировкаToolStripMenuItem,
-            this.фильтроватьToolStripMenuItem,
+            this.инструментыToolStripMenuItem,
             this.архивToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -95,48 +95,6 @@
             this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.сохранитьКакToolStripMenuItem.Text = "Сохранить как...";
             // 
-            // сортировкаToolStripMenuItem
-            // 
-            this.сортировкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.поИмениToolStripMenuItem,
-            this.поБлижайшейСтанцииМетроToolStripMenuItem});
-            this.сортировкаToolStripMenuItem.Name = "сортировкаToolStripMenuItem";
-            this.сортировкаToolStripMenuItem.Size = new System.Drawing.Size(85, 20);
-            this.сортировкаToolStripMenuItem.Text = "Сортировка";
-            // 
-            // поИмениToolStripMenuItem
-            // 
-            this.поИмениToolStripMenuItem.Name = "поИмениToolStripMenuItem";
-            this.поИмениToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.поИмениToolStripMenuItem.Text = "По имени";
-            // 
-            // поБлижайшейСтанцииМетроToolStripMenuItem
-            // 
-            this.поБлижайшейСтанцииМетроToolStripMenuItem.Name = "поБлижайшейСтанцииМетроToolStripMenuItem";
-            this.поБлижайшейСтанцииМетроToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.поБлижайшейСтанцииМетроToolStripMenuItem.Text = "По ближайшей станции метро";
-            // 
-            // фильтроватьToolStripMenuItem
-            // 
-            this.фильтроватьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.поИмениToolStripMenuItem1,
-            this.поБлижайшейСтанцииМетроToolStripMenuItem1});
-            this.фильтроватьToolStripMenuItem.Name = "фильтроватьToolStripMenuItem";
-            this.фильтроватьToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.фильтроватьToolStripMenuItem.Text = "Фильтровать";
-            // 
-            // поИмениToolStripMenuItem1
-            // 
-            this.поИмениToolStripMenuItem1.Name = "поИмениToolStripMenuItem1";
-            this.поИмениToolStripMenuItem1.Size = new System.Drawing.Size(245, 22);
-            this.поИмениToolStripMenuItem1.Text = "По имени";
-            // 
-            // поБлижайшейСтанцииМетроToolStripMenuItem1
-            // 
-            this.поБлижайшейСтанцииМетроToolStripMenuItem1.Name = "поБлижайшейСтанцииМетроToolStripMenuItem1";
-            this.поБлижайшейСтанцииМетроToolStripMenuItem1.Size = new System.Drawing.Size(245, 22);
-            this.поБлижайшейСтанцииМетроToolStripMenuItem1.Text = "По ближайшей станции метро";
-            // 
             // архивToolStripMenuItem
             // 
             this.архивToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -160,6 +118,59 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(984, 897);
             this.dataGridView1.TabIndex = 1;
+            // 
+            // инструментыToolStripMenuItem
+            // 
+            this.инструментыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.перевернутьToolStripMenuItem,
+            this.сортировкаToolStripMenuItem1,
+            this.фильтрToolStripMenuItem});
+            this.инструментыToolStripMenuItem.Name = "инструментыToolStripMenuItem";
+            this.инструментыToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.инструментыToolStripMenuItem.Text = "Инструменты";
+            // 
+            // перевернутьToolStripMenuItem
+            // 
+            this.перевернутьToolStripMenuItem.Name = "перевернутьToolStripMenuItem";
+            this.перевернутьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.перевернутьToolStripMenuItem.Text = "Перевернуть";
+            this.перевернутьToolStripMenuItem.Click += new System.EventHandler(this.перевернутьToolStripMenuItem_Click);
+            // 
+            // сортировкаToolStripMenuItem1
+            // 
+            this.сортировкаToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.поИмениToolStripMenuItem2,
+            this.поБлижайшейСтанцииМетроToolStripMenuItem2});
+            this.сортировкаToolStripMenuItem1.Name = "сортировкаToolStripMenuItem1";
+            this.сортировкаToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.сортировкаToolStripMenuItem1.Text = "Сортировка";
+            // 
+            // фильтрToolStripMenuItem
+            // 
+            this.фильтрToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1});
+            this.фильтрToolStripMenuItem.Name = "фильтрToolStripMenuItem";
+            this.фильтрToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.фильтрToolStripMenuItem.Text = "Фильтр";
+            // 
+            // поИмениToolStripMenuItem2
+            // 
+            this.поИмениToolStripMenuItem2.Name = "поИмениToolStripMenuItem2";
+            this.поИмениToolStripMenuItem2.Size = new System.Drawing.Size(245, 22);
+            this.поИмениToolStripMenuItem2.Text = "По имени";
+            this.поИмениToolStripMenuItem2.Click += new System.EventHandler(this.поИмениToolStripMenuItem2_Click);
+            // 
+            // поБлижайшейСтанцииМетроToolStripMenuItem2
+            // 
+            this.поБлижайшейСтанцииМетроToolStripMenuItem2.Name = "поБлижайшейСтанцииМетроToolStripMenuItem2";
+            this.поБлижайшейСтанцииМетроToolStripMenuItem2.Size = new System.Drawing.Size(245, 22);
+            this.поБлижайшейСтанцииМетроToolStripMenuItem2.Text = "По ближайшей станции метро";
+            this.поБлижайшейСтанцииМетроToolStripMenuItem2.Click += new System.EventHandler(this.поБлижайшейСтанцииМетроToolStripMenuItem2_Click);
+            // 
+            // toolStripTextBox1
+            // 
+            this.toolStripTextBox1.Name = "toolStripTextBox1";
+            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
             // 
             // Form1
             // 
@@ -188,16 +199,17 @@
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьКакToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem сортировкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem поИмениToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem поБлижайшейСтанцииМетроToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem фильтроватьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem поИмениToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem поБлижайшейСтанцииМетроToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem архивToolStripMenuItem;
         private System.Windows.Forms.ToolStripComboBox toolStripComboBox1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.BindingSource bindingSource1;
+        private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem перевернутьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сортировкаToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem поИмениToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem поБлижайшейСтанцииМетроToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem фильтрToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
     }
 }
 

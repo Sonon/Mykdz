@@ -23,11 +23,13 @@ namespace KDZ_3module
         private void RefreshListToDisplay()
         {
             int j = 1;
-            listToDisplay.Clear();
+            listToDisplay = new List<NotaryDisplay>();
             foreach (Notary q in activeDataBase.GetList)
             {
                 listToDisplay.Add(new NotaryDisplay(j++, q));
             }
+            bindingSource1.DataSource = listToDisplay;
+            dataGridView1.Refresh();
         }
         private void ъToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -99,6 +101,44 @@ namespace KDZ_3module
                 MessageBox.Show(mes);
             }
 
+        }
+
+        private void поИмениToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            activeDataBase.GetList.Sort((a, b) =>
+                {
+                    return a.GetFullName.CompareTo(b.GetFullName);
+                });
+            activeDataBase.GetList.Sort((a, b) =>
+            {
+                return a.GetFullName.CompareTo(b.GetFullName);
+            });
+            activeDataBase.AddNewVersion("Сортировка по имени", activeDataBase.GetList);
+            RefreshHistory();
+            RefreshListToDisplay();
+        }
+
+        private void поБлижайшейСтанцииМетроToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            activeDataBase.GetList.Sort((a, b) =>
+            {
+                return a.GetMetrostations.CompareTo(b.GetMetrostations);
+            });
+            activeDataBase.GetList.Sort((a, b) =>
+            {
+                return a.GetMetrostations.CompareTo(b.GetMetrostations);
+            });
+            activeDataBase.AddNewVersion("Сортировка по станциям", activeDataBase.GetList);
+            RefreshHistory();
+            RefreshListToDisplay();
+        }
+
+        private void перевернутьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            activeDataBase.GetList.Reverse();
+            activeDataBase.AddNewVersion("Обратный порядок", activeDataBase.GetList);
+            RefreshHistory();
+            RefreshListToDisplay();
         }
     }
 }

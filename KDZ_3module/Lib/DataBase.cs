@@ -64,7 +64,8 @@ namespace Lib
                     ErrorList.Add(str);
                 }
             }
-            History.Add(new ListVersion("Загруженный файл", list));
+            AddNewVersion("Загруженный файл", list);
+
         }
         private bool ReadNumber(string s, ref int i, out string res)
         {
@@ -152,6 +153,16 @@ namespace Lib
             {
                 return History;
             }
+        }
+        public void AddNewVersion(string name, List<Notary> list)
+        {
+            List<Notary> tempList = new List<Notary>();
+            foreach (Notary q in list)
+            {
+                tempList.Add(q);
+            }
+            History.Add(new ListVersion(name, tempList));
+            this.list = list;
         }
     }
 }

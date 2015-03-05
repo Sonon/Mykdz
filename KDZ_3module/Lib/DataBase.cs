@@ -17,9 +17,19 @@ namespace Lib
             : base()
         {
         }
+        List<ListVersion> History = new List<ListVersion>();
         List<Notary> list;
+        List<string> ErrorList;
+        public List<string> GetErrorList
+        {
+            get
+            {
+                return ErrorList;
+            }
+        }
         public void GetNewDataBaseFromString(string s)
         {
+            ErrorList = new List<string>();
             list = new List<Notary>();
             int start = 0;
             while (s[start] < '0' || s[start] > '9')
@@ -30,6 +40,7 @@ namespace Lib
             int i = start;
             while (i < s.Length)
             {
+                int temp = i;
                 string number;
                 string fullname;
                 string phonenumber;
@@ -43,7 +54,17 @@ namespace Lib
                 {
                     list.Add(new Notary(int.Parse(number), fullname, phonenumber, address, metrostations));
                 }
+                else
+                {
+                    string str = "";
+                    for (int j = temp; j<= i;j++)
+                    {
+                        str += s[j];
+                    }
+                    ErrorList.Add(str);
+                }
             }
+            History.Add(new ListVersion("Загруженный файл", list));
         }
         private bool ReadNumber(string s, ref int i, out string res)
         {
@@ -59,10 +80,6 @@ namespace Lib
                     i++;
                     return false;
                 }
-            }
-            if (res == "32")
-            {
-
             }
             if (res != "")
             {
@@ -120,6 +137,20 @@ namespace Lib
                 i++;
                 res = "";
                 return false;
+            }
+        }
+        public List<Notary> GetList
+        {
+            get
+            {
+                return list;
+            }
+        }
+        public List<ListVersion> GetHistory
+        {
+            get
+            {
+                return History;
             }
         }
     }

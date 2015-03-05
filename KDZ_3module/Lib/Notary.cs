@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lib
 {
-    class Notary
+    public class Notary
     {
         private int _Number;
         private string FullName;
@@ -49,7 +49,7 @@ namespace Lib
             {
                 string temp = "";
                 int i = 0;
-                while (i<FullName.Length || FullName[i] != ' ')
+                while (i<FullName.Length && FullName[i] != ' ')
                 {
                     temp += FullName[i];
                     i++;
@@ -75,7 +75,7 @@ namespace Lib
                     if (i >= FullName.Length)
                         throw new Exception();
                     string temp = "";
-                    while (i < FullName.Length || FullName[i] != ' ')
+                    while (i < FullName.Length && FullName[i] != ' ')
                     {
                         temp += FullName[i];
                         i++;
@@ -111,7 +111,7 @@ namespace Lib
                     if (i >= FullName.Length)
                         throw new Exception();
                     string temp = "";
-                    while (i < FullName.Length || FullName[i] != ' ')
+                    while (i < FullName.Length && FullName[i] != ' ')
                     {
                         temp += FullName[i];
                         i++;

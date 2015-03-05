@@ -35,17 +35,19 @@
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьКакToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.инструментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.перевернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сортировкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.поИмениToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.поБлижайшейСтанцииМетроToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.фильтрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
             this.архивToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.инструментыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.перевернутьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.сортировкаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.фильтрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поИмениToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.поБлижайшейСтанцииМетроToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отменитьРезультатФильтрацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -83,6 +85,7 @@
             // 
             // сохранитьToolStripMenuItem
             // 
+            this.сохранитьToolStripMenuItem.Enabled = false;
             this.сохранитьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("сохранитьToolStripMenuItem.Image")));
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
@@ -90,34 +93,11 @@
             // 
             // сохранитьКакToolStripMenuItem
             // 
+            this.сохранитьКакToolStripMenuItem.Enabled = false;
             this.сохранитьКакToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("сохранитьКакToolStripMenuItem.Image")));
             this.сохранитьКакToolStripMenuItem.Name = "сохранитьКакToolStripMenuItem";
             this.сохранитьКакToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.сохранитьКакToolStripMenuItem.Text = "Сохранить как...";
-            // 
-            // архивToolStripMenuItem
-            // 
-            this.архивToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox1});
-            this.архивToolStripMenuItem.Name = "архивToolStripMenuItem";
-            this.архивToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.архивToolStripMenuItem.Text = "Архив";
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(300, 23);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(984, 897);
-            this.dataGridView1.TabIndex = 1;
             // 
             // инструментыToolStripMenuItem
             // 
@@ -125,6 +105,7 @@
             this.перевернутьToolStripMenuItem,
             this.сортировкаToolStripMenuItem1,
             this.фильтрToolStripMenuItem});
+            this.инструментыToolStripMenuItem.Enabled = false;
             this.инструментыToolStripMenuItem.Name = "инструментыToolStripMenuItem";
             this.инструментыToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
             this.инструментыToolStripMenuItem.Text = "Инструменты";
@@ -145,14 +126,6 @@
             this.сортировкаToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.сортировкаToolStripMenuItem1.Text = "Сортировка";
             // 
-            // фильтрToolStripMenuItem
-            // 
-            this.фильтрToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripTextBox1});
-            this.фильтрToolStripMenuItem.Name = "фильтрToolStripMenuItem";
-            this.фильтрToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.фильтрToolStripMenuItem.Text = "Фильтр";
-            // 
             // поИмениToolStripMenuItem2
             // 
             this.поИмениToolStripMenuItem2.Name = "поИмениToolStripMenuItem2";
@@ -167,10 +140,63 @@
             this.поБлижайшейСтанцииМетроToolStripMenuItem2.Text = "По ближайшей станции метро";
             this.поБлижайшейСтанцииМетроToolStripMenuItem2.Click += new System.EventHandler(this.поБлижайшейСтанцииМетроToolStripMenuItem2_Click);
             // 
+            // фильтрToolStripMenuItem
+            // 
+            this.фильтрToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripTextBox1,
+            this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem,
+            this.отменитьРезультатФильтрацииToolStripMenuItem});
+            this.фильтрToolStripMenuItem.Name = "фильтрToolStripMenuItem";
+            this.фильтрToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.фильтрToolStripMenuItem.Text = "Фильтр";
+            // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.ForeColor = System.Drawing.Color.Silver;
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(230, 23);
+            this.toolStripTextBox1.Text = "Введите ключ фильтра...";
+            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
+            this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
+            // 
+            // архивToolStripMenuItem
+            // 
+            this.архивToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox1});
+            this.архивToolStripMenuItem.Enabled = false;
+            this.архивToolStripMenuItem.Name = "архивToolStripMenuItem";
+            this.архивToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.архивToolStripMenuItem.Text = "Архив";
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(300, 23);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(984, 897);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // сохранитьРезультатФильтрацииВАрхивToolStripMenuItem
+            // 
+            this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem.Name = "сохранитьРезультатФильтрацииВАрхивToolStripMenuItem";
+            this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem.Text = "Сохранить результат фильтрации в архив";
+            this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem.Click += new System.EventHandler(this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem_Click);
+            // 
+            // отменитьРезультатФильтрацииToolStripMenuItem
+            // 
+            this.отменитьРезультатФильтрацииToolStripMenuItem.Name = "отменитьРезультатФильтрацииToolStripMenuItem";
+            this.отменитьРезультатФильтрацииToolStripMenuItem.Size = new System.Drawing.Size(302, 22);
+            this.отменитьРезультатФильтрацииToolStripMenuItem.Text = "Отменить результат фильтрации";
+            this.отменитьРезультатФильтрацииToolStripMenuItem.Click += new System.EventHandler(this.отменитьРезультатФильтрацииToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -210,6 +236,8 @@
         private System.Windows.Forms.ToolStripMenuItem поБлижайшейСтанцииМетроToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem фильтрToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьРезультатФильтрацииВАрхивToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отменитьРезультатФильтрацииToolStripMenuItem;
     }
 }
 

@@ -16,6 +16,7 @@ namespace KDZ_3module
     {
         List<NotaryDisplay> listToDisplay = new List<NotaryDisplay>();
         DataBase activeDataBase = DataBase.Instance;
+        bool IsTextBoxClicked = false;
         public Form1()
         {
             InitializeComponent();
@@ -72,6 +73,12 @@ namespace KDZ_3module
                 reader.Close();
                 if (activeDataBase.GetList.Count > 0)
                 {
+                    сохранитьToolStripMenuItem.Enabled = true;
+                    сохранитьКакToolStripMenuItem.Enabled = true;
+                    инструментыToolStripMenuItem.Enabled = true;
+                    архивToolStripMenuItem.Enabled = true;
+
+
                     RefreshListToDisplay();
                     if (activeDataBase.GetErrorList.Count > 0)
                     {
@@ -105,40 +112,120 @@ namespace KDZ_3module
 
         private void поИмениToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            activeDataBase.GetList.Sort((a, b) =>
+            if (toolStripTextBox1.Text == "" || IsTextBoxClicked == false)
+            {
+                activeDataBase.GetList.Sort((a, b) =>
+                    {
+                        return a.GetFullName.CompareTo(b.GetFullName);
+                    });
+                activeDataBase.GetList.Sort((a, b) =>
                 {
                     return a.GetFullName.CompareTo(b.GetFullName);
                 });
-            activeDataBase.GetList.Sort((a, b) =>
+                activeDataBase.AddNewVersion("Сортировка по имени", activeDataBase.GetList);
+                RefreshHistory();
+                RefreshListToDisplay();
+            }
+            else
             {
-                return a.GetFullName.CompareTo(b.GetFullName);
-            });
-            activeDataBase.AddNewVersion("Сортировка по имени", activeDataBase.GetList);
-            RefreshHistory();
-            RefreshListToDisplay();
+                MessageBox.Show("Сначала сохраните или отмените фильтрацию");
+            }
         }
 
         private void поБлижайшейСтанцииМетроToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            activeDataBase.GetList.Sort((a, b) =>
+            if (toolStripTextBox1.Text == "" || IsTextBoxClicked == false)
             {
-                return a.GetMetrostations.CompareTo(b.GetMetrostations);
-            });
-            activeDataBase.GetList.Sort((a, b) =>
+                activeDataBase.GetList.Sort((a, b) =>
+                {
+                    return a.GetMetrostations.CompareTo(b.GetMetrostations);
+                });
+                activeDataBase.GetList.Sort((a, b) =>
+                {
+                    return a.GetMetrostations.CompareTo(b.GetMetrostations);
+                });
+                activeDataBase.AddNewVersion("Сортировка по станциям", activeDataBase.GetList);
+                RefreshHistory();
+                RefreshListToDisplay();
+            }
+            else
             {
-                return a.GetMetrostations.CompareTo(b.GetMetrostations);
-            });
-            activeDataBase.AddNewVersion("Сортировка по станциям", activeDataBase.GetList);
-            RefreshHistory();
-            RefreshListToDisplay();
+                MessageBox.Show("Сначала сохраните или отмените фильтрацию");
+            }
         }
 
         private void перевернутьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            activeDataBase.GetList.Reverse();
-            activeDataBase.AddNewVersion("Обратный порядок", activeDataBase.GetList);
-            RefreshHistory();
-            RefreshListToDisplay();
+            if (toolStripTextBox1.Text == "" || IsTextBoxClicked == false)
+            {
+                activeDataBase.GetList.Reverse();
+                activeDataBase.AddNewVersion("Обратный порядок", activeDataBase.GetList);
+                RefreshHistory();
+                RefreshListToDisplay();
+            }
+            else
+            {
+                MessageBox.Show("Сначала сохраните или отмените фильтрацию");
+            }
         }
+
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (toolStripTextBox1.Text != "")
+            {
+                string text = toolStripTextBox1.Text;
+                activeDataBase.GetList.Clear();
+                foreach (Notary q in activeDataBase.GetHistory[activeDataBase.GetHistory.Count - 1].GetList)
+                {
+                    if (q.GetFullName.IndexOf(text) > -1 ||
+                        q.GetPhoneNumber.IndexOf(text) > -1 ||
+                        q.GetAddress.IndexOf(text) > -1 ||
+                        q.GetMetrostations.IndexOf(text) > -1)
+                    {
+                        activeDataBase.GetList.Add(q);
+                    }
+                }
+                RefreshHistory();
+                RefreshListToDisplay();
+            }
+        }
+
+        private void сохранитьРезультатФильтрацииВАрхивToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (toolStripTextBox1.Text != "" && activeDataBase.GetList.Count > 0)
+            {
+                activeDataBase.AddNewVersion("Фильтрация по ключу: \"" + toolStripTextBox1.Text + "\"", activeDataBase.GetList);
+                RefreshHistory();
+                RefreshListToDisplay();
+                toolStripTextBox1.Text = "";
+            }
+            else
+            {
+                activeDataBase.GetList.Clear();
+                foreach (Notary q in activeDataBase.GetHistory[activeDataBase.GetHistory.Count - 1].GetList)
+                {
+                    activeDataBase.GetList.Add(q);
+                }
+                toolStripTextBox1.Text = "";
+            }
+        }
+
+        private void отменитьРезультатФильтрацииToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            activeDataBase.GetList.Clear();
+            foreach (Notary q in activeDataBase.GetHistory[activeDataBase.GetHistory.Count - 1].GetList)
+            {
+                activeDataBase.GetList.Add(q);
+            }
+            toolStripTextBox1.Text = "";
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+            IsTextBoxClicked = true;
+            toolStripTextBox1.Text = "";
+            toolStripTextBox1.ForeColor = Color.Black;
+        }
+
     }
 }

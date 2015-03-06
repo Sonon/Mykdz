@@ -66,50 +66,57 @@ namespace KDZ_3module
         {
             OpenFileDialog openfile = new OpenFileDialog();
             openfile.Filter = "Файлы таблиц (*.csv)|*.csv";
-            openfile.ShowDialog();
-            try
+            if (openfile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                StreamReader reader = new StreamReader(openfile.OpenFile());
-                activeDataBase.GetNewDataBaseFromString(reader.ReadToEnd());
-                reader.Close();
-                if (activeDataBase.GetList.Count > 0)
+                try
                 {
-                    сохранитьToolStripMenuItem.Enabled = true;
-                    сохранитьКакToolStripMenuItem.Enabled = true;
-                    инструментыToolStripMenuItem.Enabled = true;
-                    архивToolStripMenuItem.Enabled = true;
-
-                    path = openfile.FileName;
-
-                    RefreshListToDisplay();
-                    if (activeDataBase.GetErrorList.Count > 0)
+                    StreamReader reader = new StreamReader(openfile.OpenFile());
+                    activeDataBase.GetNewDataBaseFromString(reader.ReadToEnd());
+                    reader.Close();
+                    if (activeDataBase.GetList.Count > 0)
                     {
-                        string res = string.Format("Количество необработанных строк: {0}\n\n\n\nСписок:\n\n", activeDataBase.GetErrorList.Count);
-                        foreach (string q in activeDataBase.GetErrorList)
-                        {
-                            res += q;
-                        }
-                        MessageBox.Show(res);
-                    }
-                    RefreshHistory();
-                    bindingSource1.DataSource = listToDisplay;
-                    dataGridView1.DataSource = bindingSource1;
-                }
-                else
-                {
-                    MessageBox.Show("В файле нет корректных строк! Пожалуйста, загрузите другой файл.");
-                }
-            }
-            catch (Exception ex)
-            {
-                string mes = ex.Message;
-                if (ex is IndexOutOfRangeException)
-                {
-                    mes = "Ошибка при выборе файла";
-                }
-                MessageBox.Show(mes);
-            }
+                        сохранитьToolStripMenuItem.Enabled = true;
+                        сохранитьКакToolStripMenuItem.Enabled = true;
+                        инструментыToolStripMenuItem.Enabled = true;
+                        архивToolStripMenuItem.Enabled = true;
+                        добавитьКToolStripMenuItem.Enabled = true;
 
+                        path = openfile.FileName;
+
+                        activeDataBase.GetHistory.Clear();
+                        activeDataBase.AddNewVersion("Загруженный файл", activeDataBase.GetList);
+
+                        RefreshListToDisplay();
+                        if (activeDataBase.GetErrorList.Count > 0)
+                        {
+                            string res = string.Format("Количество необработанных строк: {0}\n\n\n\nСписок:\n\n", activeDataBase.GetErrorList.Count);
+                            foreach (string q in activeDataBase.GetErrorList)
+                            {
+                                res += q;
+                            }
+                            MessageBox.Show(res);
+                        }
+                        RefreshHistory();
+                        
+                        bindingSource1.DataSource = listToDisplay;
+                        dataGridView1.DataSource = bindingSource1;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Файл слишком сильно поврежден! Пожалуйста, загрузите другой файл.");
+                    }
+                }
+
+                catch (Exception ex)
+                {
+                    string mes = ex.Message;
+                    if (ex is IndexOutOfRangeException)
+                    {
+                        mes = "Ошибка при выборе файла";
+                    }
+                    MessageBox.Show(mes);
+                }
+            }
         }
 
         private void поИмениToolStripMenuItem2_Click(object sender, EventArgs e)
@@ -244,14 +251,42 @@ namespace KDZ_3module
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
             StreamWriter stream = new StreamWriter(new FileStream(path, FileMode.Create), Encoding.Unicode);
-            //byte[] toWrite = activeDataBase.GetString().ToArray<byte>();
             stream.Write(activeDataBase.GetString());
             stream.Close();
         }
 
         private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveFileDialog savefile = new SaveFileDialog();
+            if (savefile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                path = savefile.FileName;
+                StreamWriter stream = new StreamWriter(new FileStream(path, FileMode.Create), Encoding.Unicode);
+                stream.Write(activeDataBase.GetString());
+                stream.Close();
+            }
+        }
 
+        private void добавитьКToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog savefile = new SaveFileDialog();
+                savefile.OverwritePrompt = false;
+                savefile.CheckFileExists = true;
+                savefile.Filter = "Файлы таблиц (*.csv)|*.csv";
+                if (savefile.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    path = savefile.FileName;
+                    StreamWriter stream = new StreamWriter(new FileStream(path, FileMode.Append), Encoding.Unicode);
+                    stream.Write(activeDataBase.GetString());
+                    stream.Close();
+                }
+            }
+            catch(Exception mes)
+            {
+                MessageBox.Show(mes.Message);
+            }
         }
     }
 }

@@ -57,11 +57,19 @@ namespace Lib
                 else
                 {
                     string str = "";
-                    for (int j = temp; j<= i;j++)
+                    for (int j = temp; j < i; j++)
                     {
                         str += s[j];
                     }
                     ErrorList.Add(str);
+                    if (s[i - 1] != '\n')
+                    {
+                        while (s[i++] != '\n')
+                        {
+                            if (i >= s.Length) throw new Exception("Файл поврежден");
+                        }
+                        i++;
+                    }
                 }
             }
             AddNewVersion("Загруженный файл", list);

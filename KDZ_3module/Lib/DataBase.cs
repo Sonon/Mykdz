@@ -34,8 +34,8 @@ namespace Lib
             int start = 0;
             while (s[start] < '0' || s[start] > '9')
             {
-                if (start >= s.Length) throw GetDataErrorException();
                 start++;
+                if (start >= s.Length) throw GetDataErrorException();
             }
             int i = start;
             while (i < s.Length)
@@ -163,6 +163,15 @@ namespace Lib
             }
             History.Add(new ListVersion(name, tempList));
             this.list = list;
+        }
+        public string GetString()
+        {
+            string res = "";
+            foreach (Notary q in list)
+            {
+                res += q.ToString();
+            }
+            return res;
         }
     }
 }

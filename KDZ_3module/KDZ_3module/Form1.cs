@@ -14,9 +14,9 @@ namespace KDZ_3module
 {
     public partial class Form1 : Form
     {
+        string path = "";
         List<NotaryDisplay> listToDisplay = new List<NotaryDisplay>();
         DataBase activeDataBase = DataBase.Instance;
-        BindingSource bs = new BindingSource();
         bool IsTextBoxClicked = false;
         public Form1()
         {
@@ -39,7 +39,6 @@ namespace KDZ_3module
         }
         private void ShowActiveList()
         {
-            int i = 1;
             dataGridView1.Columns.Clear();
             dataGridView1.Rows.Clear();
             bindingSource1.DataSource = activeDataBase.GetList;
@@ -80,6 +79,7 @@ namespace KDZ_3module
                     инструментыToolStripMenuItem.Enabled = true;
                     архивToolStripMenuItem.Enabled = true;
 
+                    path = openfile.FileName;
 
                     RefreshListToDisplay();
                     if (activeDataBase.GetErrorList.Count > 0)
@@ -241,5 +241,16 @@ namespace KDZ_3module
             dataGridView1.Refresh();
         }
 
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            StreamWriter stream = new StreamWriter(File.OpenWrite(path), Encoding.Default);
+            stream.Write( activeDataBase.GetString());
+            stream.Close();
+        }
+
+        private void сохранитьКакToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

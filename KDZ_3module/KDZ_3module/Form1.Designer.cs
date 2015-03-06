@@ -42,12 +42,13 @@
             this.поБлижайшейСтанцииМетроToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.фильтрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
+            this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отменитьРезультатФильтрацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.архивToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.отменитьРезультатФильтрацииToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -69,6 +70,7 @@
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.открытьToolStripMenuItem,
+            this.toolStripSeparator1,
             this.сохранитьToolStripMenuItem,
             this.сохранитьКакToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
@@ -113,7 +115,7 @@
             // перевернутьToolStripMenuItem
             // 
             this.перевернутьToolStripMenuItem.Name = "перевернутьToolStripMenuItem";
-            this.перевернутьToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.перевернутьToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.перевернутьToolStripMenuItem.Text = "Перевернуть";
             this.перевернутьToolStripMenuItem.Click += new System.EventHandler(this.перевернутьToolStripMenuItem_Click);
             // 
@@ -123,7 +125,7 @@
             this.поИмениToolStripMenuItem2,
             this.поБлижайшейСтанцииМетроToolStripMenuItem2});
             this.сортировкаToolStripMenuItem1.Name = "сортировкаToolStripMenuItem1";
-            this.сортировкаToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.сортировкаToolStripMenuItem1.Size = new System.Drawing.Size(145, 22);
             this.сортировкаToolStripMenuItem1.Text = "Сортировка";
             // 
             // поИмениToolStripMenuItem2
@@ -147,7 +149,7 @@
             this.сохранитьРезультатФильтрацииВАрхивToolStripMenuItem,
             this.отменитьРезультатФильтрацииToolStripMenuItem});
             this.фильтрToolStripMenuItem.Name = "фильтрToolStripMenuItem";
-            this.фильтрToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.фильтрToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.фильтрToolStripMenuItem.Text = "Фильтр";
             // 
             // toolStripTextBox1
@@ -158,31 +160,6 @@
             this.toolStripTextBox1.Text = "Введите ключ фильтра...";
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
-            // 
-            // архивToolStripMenuItem
-            // 
-            this.архивToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripComboBox1});
-            this.архивToolStripMenuItem.Enabled = false;
-            this.архивToolStripMenuItem.Name = "архивToolStripMenuItem";
-            this.архивToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.архивToolStripMenuItem.Text = "Архив";
-            // 
-            // toolStripComboBox1
-            // 
-            this.toolStripComboBox1.Name = "toolStripComboBox1";
-            this.toolStripComboBox1.Size = new System.Drawing.Size(300, 23);
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(984, 897);
-            this.dataGridView1.TabIndex = 1;
             // 
             // сохранитьРезультатФильтрацииВАрхивToolStripMenuItem
             // 
@@ -198,11 +175,46 @@
             this.отменитьРезультатФильтрацииToolStripMenuItem.Text = "Отменить результат фильтрации";
             this.отменитьРезультатФильтрацииToolStripMenuItem.Click += new System.EventHandler(this.отменитьРезультатФильтрацииToolStripMenuItem_Click);
             // 
+            // архивToolStripMenuItem
+            // 
+            this.архивToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripComboBox1});
+            this.архивToolStripMenuItem.Enabled = false;
+            this.архивToolStripMenuItem.Name = "архивToolStripMenuItem";
+            this.архивToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.архивToolStripMenuItem.Text = "Архив";
+            // 
+            // toolStripComboBox1
+            // 
+            this.toolStripComboBox1.Name = "toolStripComboBox1";
+            this.toolStripComboBox1.Size = new System.Drawing.Size(300, 23);
+            this.toolStripComboBox1.SelectedIndexChanged += new System.EventHandler(this.toolStripComboBox1_SelectedIndexChanged);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 27);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.Size = new System.Drawing.Size(984, 857);
+            this.dataGridView1.TabIndex = 1;
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(159, 6);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 961);
+            this.ClientSize = new System.Drawing.Size(984, 882);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -238,6 +250,7 @@
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.ToolStripMenuItem сохранитьРезультатФильтрацииВАрхивToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отменитьРезультатФильтрацииToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

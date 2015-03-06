@@ -11,3 +11,14 @@ C:\Users\Night\Documents\GitHub\Mykdz\KDZ_3module\KDZ_3module\bin\Debug\Lib.dll
 C:\Users\Night\Documents\GitHub\Mykdz\KDZ_3module\KDZ_3module\bin\Debug\Lib.pdb
 C:\Users\Night\Documents\GitHub\Mykdz\KDZ_3module\KDZ_3module\obj\Debug\KDZ_3module.exe
 C:\Users\Night\Documents\GitHub\Mykdz\KDZ_3module\KDZ_3module\obj\Debug\KDZ_3module.pdb
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\bin\Debug\KDZ_3module.exe.config
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\obj\Debug\KDZ_3module.exe
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\obj\Debug\KDZ_3module.pdb
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\bin\Debug\KDZ_3module.exe
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\bin\Debug\KDZ_3module.pdb
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\bin\Debug\Lib.dll
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\bin\Debug\Lib.pdb
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\obj\Debug\KDZ_3module.csprojResolveAssemblyReference.cache
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\obj\Debug\KDZ_3module.Form1.resources
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\obj\Debug\KDZ_3module.Properties.Resources.resources
+\\psf\Home\Documents\Visual Studio 2013\Projects\Mykdz\Mykdz\KDZ_3module\KDZ_3module\obj\Debug\KDZ_3module.csproj.GenerateResource.Cache

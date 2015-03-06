@@ -16,6 +16,7 @@ namespace KDZ_3module
     {
         List<NotaryDisplay> listToDisplay = new List<NotaryDisplay>();
         DataBase activeDataBase = DataBase.Instance;
+        BindingSource bs = new BindingSource();
         bool IsTextBoxClicked = false;
         public Form1()
         {
@@ -54,12 +55,13 @@ namespace KDZ_3module
         private void RefreshHistory()
         {
             toolStripComboBox1.Items.Clear();
+            int i = 1;
             foreach (ListVersion q in activeDataBase.GetHistory)
             {
-                toolStripComboBox1.Items.Add(q);
+                toolStripComboBox1.Items.Add(i++.ToString() + ". " + q);
             }
-            if (toolStripComboBox1.Items.Count > 0)
-                toolStripComboBox1.SelectedIndex = 0;
+            //if (toolStripComboBox1.Items.Count > 0)
+            //    toolStripComboBox1.SelectedIndex = toolStripComboBox1.Items.Count - 1;
         }
         private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -207,6 +209,8 @@ namespace KDZ_3module
                     activeDataBase.GetList.Add(q);
                 }
                 toolStripTextBox1.Text = "";
+                RefreshListToDisplay();
+                dataGridView1.Refresh();
             }
         }
 
@@ -218,6 +222,8 @@ namespace KDZ_3module
                 activeDataBase.GetList.Add(q);
             }
             toolStripTextBox1.Text = "";
+            RefreshListToDisplay();
+            dataGridView1.Refresh();
         }
 
         private void toolStripTextBox1_Click(object sender, EventArgs e)
@@ -225,6 +231,14 @@ namespace KDZ_3module
             IsTextBoxClicked = true;
             toolStripTextBox1.Text = "";
             toolStripTextBox1.ForeColor = Color.Black;
+        }
+
+        private void toolStripComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            activeDataBase.AddNewVersion("Выбор версии -> " + (toolStripComboBox1.SelectedIndex + 1).ToString(), activeDataBase.GetHistory[toolStripComboBox1.SelectedIndex].GetList);
+            RefreshHistory();
+            RefreshListToDisplay();
+            dataGridView1.Refresh();
         }
 
     }

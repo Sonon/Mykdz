@@ -71,7 +71,7 @@ namespace Lib
         {
             res = "";
             if (s[i] < '0' || s[i] > '9')
-                throw GetDataErrorException();
+                return false;
             while (s[i] >= '0' && s[i] <= '9')
             {
                 res += s[i];
@@ -167,8 +167,14 @@ namespace Lib
         public string GetString()
         {
             string res = "";
-            foreach (Notary q in list)
+            int i = 0;
+            foreach (Notary q in this.GetList)
             {
+                i++;
+                if (i==690)
+                {
+
+                }
                 res += q.ToString();
             }
             return res;

@@ -243,8 +243,9 @@ namespace KDZ_3module
 
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            StreamWriter stream = new StreamWriter(File.OpenWrite(path), Encoding.Default);
-            stream.Write( activeDataBase.GetString());
+            StreamWriter stream = new StreamWriter(new FileStream(path, FileMode.Create), Encoding.Unicode);
+            //byte[] toWrite = activeDataBase.GetString().ToArray<byte>();
+            stream.Write(activeDataBase.GetString());
             stream.Close();
         }
 

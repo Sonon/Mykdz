@@ -164,7 +164,29 @@ namespace Lib
         }
         public override string ToString()
         {
-            return string.Format("{0}. Name: {1}, phone: {2}, address: {3}, metro: {4}", _Number, GetFullName, GetPhoneNumber, GetAddress, GetMetrostations);
+            //return string.Format("{0}. Name: {1}, phone: {2}, address: {3}, metro: {4}", _Number, GetFullName, GetPhoneNumber, GetAddress, GetMetrostations);
+            string res = "";
+            res += ElementToString(Number.ToString()) + ",";
+            res += ElementToString(this.GetFullName) + ",";
+            res += ElementToString(this.GetPhoneNumber) + ",";
+            res += ElementToString(this.GetAddress) + ",";
+            res += ElementToString(this.GetMetrostations) + "\n";
+            return res;
+        }
+        private string ElementToString(string s)
+        {
+            for (int i = 0; i<s.Length;i++)
+            {
+                if (s[i] == '\"')
+                {
+                    s = s.Insert(i++, "\"");
+                }
+            }
+            if (s.IndexOf(',') > -1)
+            {
+                s = "\"" + s + "\"";
+            }
+            return s;
         }
     }
 }
